@@ -20,8 +20,6 @@ Matching an Email – /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
 - [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
@@ -32,15 +30,38 @@ A standard email has the format:
 First we will name the parts that make up this expression, and in the following sections below the parts will be further broken down into cited explanations.  While we limit this regex example to an email address, the concepts are applicable to describing the syntax of any regular expression in various coding languages in general.
 
 
+* literal: " / " (forward slash).
+* anchors: " ^ " and " $ " (carrot and cash).
+* bracket expressions: " [here] " (square bracket), what's here is what counts.
+* grouping: " (here) " (parentheses), aka subexpression.
+* operators: " @ " (at and plus symbols).
+* characters: " A-Z0-9_\._- " (various key characters).
+* boundaries: " /^ and $/ " (literal and anchor).
+
 [a-z0-9_\.-]
 [\da-z\.-]
 [a-z\.]{2,6}
 
-
+(+)@(+).(){}
+/^ and $/ 
 
 
 
 ### Anchors
+
+
+>https://coding-boot-camp.github.io/full-stack/computer-science/regex-tutorial
+>
+>A regex is considered a literal, so the pattern must be wrapped in slash characters (/).
+>
+>The characters ^ and $ are both considered to be anchors.
+>
+>The ^ anchor signifies a string that begins with the characters that follow it.
+>
+>The $ anchor signifies a string that ends with the characters that precede it.
+>  
+>Anything inside a set of square brackets ([]) represents a range of characters that we want to match. These patterns are known as bracket expressions, but they are also known as a positive character group, because they outline the characters we want to include.
+
 
 ### Quantifiers
 
@@ -71,6 +92,11 @@ From the Request-Responce full stack blog, we get the following explanation of Q
 
 ### OR Operator
 
+In our case, we are using the AND boolean operator, while the use may be simular, the meaning is different. Basicaly, an email address is constructed with a username AND organization.
+
+(+)@(+).(){}
+
+
 ### Character Classes
 
 The following explanation of characters is from the regex tutorial:
@@ -87,6 +113,8 @@ A number of common character groups have their own built-in shortcuts. Digits ar
 .	Any character except for newline
 
 ### Flags
+
+ToDo with the @ symbol, specifically an email expression will always contain this character.  If an expression without @ is entered in the textbox, the query is rejected, since all emails will have the symbol.  Simularly, the [a-z\.]{2,6} says the address must end with a suffix from 2 to 6 characters long, preceeded by a period.
 
 ### Grouping and Capturing
 
@@ -126,13 +154,24 @@ https://eloquentjavascript.net/09_regexp.html
 
 ### Bracket Expressions
 
+
+[a-z0-9_\.-]
+[\da-z\.-]
+[a-z\.]{2,6}
+
 ### Greedy and Lazy Match
+
+Script for identifying an email. We will use this in identifying and aggregating data, beyond the scope of storing to a database list.
+
 
 ### Boundaries
 
-### Back-references
+We begin and end our regex expression with boundaries.
+/^ and $/ 
+Notice this is constructed of the literal and anchor pattern, bounding what is inbetween.
 
-### Look-ahead and Look-behind
+>https://eloquentjavascript.net/09_regexp.html
+>If we want to enforce that the match must span the whole string, we can add the markers ^ and $. The caret matches the start of the input string, whereas the dollar sign matches the end.
 
 ## Author
 
