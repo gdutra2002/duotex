@@ -18,7 +18,7 @@ https://github.com/gdutra2002/duotex
 >
 > **Note**:
 
-![cat crch](develop/utils/screenshot.png)
+![duotex](duotexScreenshot.png)
 
 ## Credits
 Credit is given to UC Davis full stack bootcamp TA's, UCD-VIRT-FSF-PT-12-2022-U-LOLC Module 17
@@ -35,7 +35,7 @@ See MIT license
 
 ### Features
 >
->* github, terminal, JavaScript
+>* github, gist, JavaScript
 >
 
 ## How to Contribute

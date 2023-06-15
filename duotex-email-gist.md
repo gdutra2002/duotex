@@ -38,17 +38,21 @@ First we will name the parts that make up this expression, and in the following 
 * characters: " A-Z0-9_\._- " (various key characters).
 * boundaries: " /^ and $/ " (literal and anchor).
 
-[a-z0-9_\.-]
+[a-z0-9_\.-] 
+
 [\da-z\.-]
+
 [a-z\.]{2,6}
 
 (+)@(+).(){}
+
 /^ and $/ 
 
 
 
 ### Anchors
 
+" ^ " and " $ " (carrot and cash).
 
 >https://coding-boot-camp.github.io/full-stack/computer-science/regex-tutorial
 >
@@ -64,6 +68,10 @@ First we will name the parts that make up this expression, and in the following 
 
 
 ### Quantifiers
+
+We look at the seccond expression here, in the curly brackets:
+
+[a-z\.]{2,6}
 
 From the Request-Responce full stack blog, we get the following explanation of Quantifiers:
 
@@ -99,18 +107,26 @@ In our case, we are using the AND boolean operator, while the use may be simular
 
 ### Character Classes
 
+This is the closest thing we have to plain text in the explanation of a regex expression. Essentialy it specifies what characters are included as valid.
+
+[a-z0-9_\.-]
+[\da-z\.-]
+
+Notice that in our email example, capital letters were not included.  [A-Z]
+
+
 The following explanation of characters is from the regex tutorial:
-https://eloquentjavascript.net/09_regexp.html
-
-A number of common character groups have their own built-in shortcuts. Digits are one of them: \d means the same thing as [0-9].
-
-\d	Any digit character
-\w	An alphanumeric character (“word character”)
-\s	Any whitespace character (space, tab, newline, and similar)
-\D	A character that is not a digit
-\W	A nonalphanumeric character
-\S	A nonwhitespace character
-.	Any character except for newline
+>https://eloquentjavascript.net/09_regexp.html
+>
+>A number of common character groups have their own built-in shortcuts. Digits are one of them: \d means the same thing as [0-9].
+>
+>\d	Any digit character
+>\w	An alphanumeric character (“word character”)
+>\s	Any whitespace character (space, tab, newline, and similar)
+>\D	A character that is not a digit
+>\W	A nonalphanumeric character
+>\S	A nonwhitespace character
+>.	Any character except for newline
 
 ### Flags
 
@@ -119,33 +135,34 @@ ToDo with the @ symbol, specifically an email expression will always contain thi
 ### Grouping and Capturing
 
 The following explanation of matching is from the regex tutorial:
-https://eloquentjavascript.net/09_regexp.html
 
-Matches and groups
-The test method is the absolute simplest way to match a regular expression. It tells you only whether it matched and nothing else. Regular expressions also have an exec (execute) method that will return null if no match was found and return an object with information about the match otherwise.
-
-let match = /\d+/.exec("one two 100");
-console.log(match);
-// → ["100"]
-console.log(match.index);
-// → 8
-An object returned from exec has an index property that tells us where in the string the successful match begins. Other than that, the object looks like (and in fact is) an array of strings, whose first element is the string that was matched. In the previous example, this is the sequence of digits that we were looking for.
-
-String values have a match method that behaves similarly.
-
-console.log("one two 100".match(/\d+/));
-// → ["100"]
-When the regular expression contains subexpressions grouped with parentheses, the text that matched those groups will also show up in the array. The whole match is always the first element. The next element is the part matched by the first group (the one whose opening parenthesis comes first in the expression), then the second group, and so on.
-
-let quotedText = /'([^']*)'/;
-console.log(quotedText.exec("she said 'hello'"));
-// → ["'hello'", "hello"]
-When a group does not end up being matched at all (for example, when followed by a question mark), its position in the output array will hold undefined. Similarly, when a group is matched multiple times, only the last match ends up in the array.
-
-console.log(/bad(ly)?/.exec("bad"));
-// → ["bad", undefined]
-console.log(/(\d)+/.exec("123"));
-// → ["123", "3"]
+>https://eloquentjavascript.net/09_regexp.html
+>
+>Matches and groups
+>The test method is the absolute simplest way to match a regular expression. It tells you only whether it matched and nothing else. Regular expressions also have an exec (execute) method that will return null if no match was found and return an object with information about the match otherwise.
+>
+>let match = /\d+/.exec("one two 100");
+>console.log(match);
+>// → ["100"]
+>console.log(match.index);
+>// → 8
+>An object returned from exec has an index property that tells us where in the string the successful match begins. Other than that, the object looks like (and in fact is) an array of strings, whose first element is the string that was matched. In the previous example, this is the sequence of digits that we were looking for.
+>
+>String values have a match method that behaves similarly.
+>
+>console.log("one two 100".match(/\d+/));
+>// → ["100"]
+>When the regular expression contains subexpressions grouped with parentheses, the text that matched those groups will also show up in the array. The whole match is always the first element. The next element is the part matched by the first group (the one whose opening parenthesis comes first in the expression), then the second group, and so on.
+>
+>let quotedText = /'([^']*)'/;
+>console.log(quotedText.exec("she said 'hello'"));
+>// → ["'hello'", "hello"]
+>When a group does not end up being matched at all (for example, when followed by a question mark), its position in the output array will hold undefined. Similarly, when a group is matched multiple times, only the last match ends up in the array.
+>
+>console.log(/bad(ly)?/.exec("bad"));
+>// → ["bad", undefined]
+>console.log(/(\d)+/.exec("123"));
+>// → ["123", "3"]
 
 ```bash
 https://eloquentjavascript.net/09_regexp.html
