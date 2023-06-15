@@ -4,10 +4,13 @@
 * Working with code in an endevour like combining mathmatics with a foreign language creating a digital paradigm.  To further understand, we must stop and reflect upon new concept from time to time. Here we will cover the concept of regular expression, otherwise known as regex.  This is a series of characters within a string that correspond to an actual leters that have some meaning, ie. going from a cryptic expression to one that is comprehensible in plain language.
 * To learn more about machine language we will dive into the literature.
 * Using regex is a common way to guard sensitive data.
-* Will add more later.
+* The example explained in the gist file is the regular expression for an email address.
+* /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 
 ## Installation
+
+See the attached gist file.
 
 https://github.com/gdutra2002/duotex
 
